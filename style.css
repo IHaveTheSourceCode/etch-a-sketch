@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "minecraft-alt";
+  src: url(/fonts/Minecrafter.Alt.ttf);
+}
+
+@font-face {
+  font-family: "minecraft-normal";
+  src: url(/fonts/Minecrafter.Reg.ttf);
+}
+
+body {
+  margin: 0px;
+  margin-top: 40px;
+  height: calc(100vh - 40px);
+  background-image: linear-gradient(rgb(255, 255, 255), rgb(71, 71, 255));
+  display: flex;
+}
+
+.left-sidebar {
+  height: 852px;
+  width: 250px;
+  border: 2px solid blue;
+  border-radius: 5px;
+
+  margin-left: 350px;
+}
+
+.right-content {
+  margin-left: 50px;
+}
+
+.header-title {
+  width: 800px;
+  height: 50px;
+  border: 1px solid black;
+
+  font-family: "minecraft-alt";
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.grid-container {
+  width: 800px;
+  height: 800px;
+  border: 1px solid black;
+
+  display: grid;
+  grid-template: repeat(16, 1fr) / repeat(16, 1fr);
+}
+
+.inventory-border {
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  border-radius: 5px;
+}
+
+.inventory {
+  height: 500px;
+
+  background-color: #c7c6c7;
+  border-top: 5px solid #ffffff;
+  border-left: 5px solid #ffffff;
+  border-right: 7px solid #565556;
+  border-bottom: 7px solid #565556;
+  border-radius: 5px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 80px);
+}
