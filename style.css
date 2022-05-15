@@ -69,3 +69,11 @@ body {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 80px);
 }
+
+.inventory > div {
+  grid-column: span 5;
+}
+
+.inventory > img {
+  height: 50px;
+}
