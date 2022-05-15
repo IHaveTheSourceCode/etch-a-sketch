@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: "minecraft-normal";
-  src: url(/fonts/Minecrafter.Reg.ttf);
+  src: url(/fonts/MinecraftRegula.otf);
 }
 
 body {
@@ -64,16 +64,40 @@ body {
   border-right: 7px solid #565556;
   border-bottom: 7px solid #565556;
   border-radius: 5px;
-
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 80px);
 }
 
-.inventory > div {
+.inventory-title {
   grid-column: span 5;
+  grid-gap: 0;
+  font-family: "minecraft-normal";
+  font-size: 1.5rem;
+  align-self: end;
+  padding-left: 10px;
+  color: rgb(66, 66, 66);
 }
 
-.inventory > img {
-  height: 50px;
+.inventory-blocks {
+  display: grid;
+  grid-template-columns: repeat(5, 44px);
+  grid-template-rows: repeat(5, 44px);
+  padding-left: 10px;
+}
+
+.inventory-blocks > img {
+  height: 40px;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  background-color: #8d8d8d;
+}
+
+.inventory-blocks > img:hover {
+  background-color: rgb(170, 169, 169);
+  opacity: 0.8;
+}
+
+.inventory-blocks > img:active {
+  background-color: rgb(0, 128, 0, 0.6);
+  opacity: 1;
 }
