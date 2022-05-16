@@ -1,15 +1,14 @@
-// defines base grid size
-let grid_size = 16;
-
 // function that makes grid and appends it into container
 const container = document.querySelector(".grid-container");
 function setGrid(grid_size) {
-  // display: grid
-  // grid-template: repeat(grid_size, 1fr) / repeat(grid_size, 1fr)
   container.style.display = "grid";
-  container.style.gridTemplateColumns = "repeat(16, 1fr)";
-  container.style.gridTemplateRows = "repeat(16, 1fr)";
+  container.style.gridTemplateColumns = "repeat(" + grid_size + ", 1fr)";
+  container.style.gridTemplateRows = "repeat(" + grid_size + ", 1fr)";
 }
+
+// defines base grid size
+let grid_size = 16;
+setGrid(grid_size);
 
 // changes opacity to 1 and img:active to some background colro
 
@@ -30,3 +29,33 @@ slider.oninput = function () {
   setGrid(grid_size);
   console.log(grid_size);
 };
+
+// changes opacity to 1 and img:active to some background color
+
+// adds event to every 3D block which returns
+// .tooltip-text textContent on click
+const images = document.querySelectorAll(".tooltip-image");
+const block_names = document.querySelectorAll(".tooltiptext");
+
+function allocate(images, block_name) {
+  for (let i = 0; i < images.length; i++) {
+    images[i].addEventListener("click", () => {
+      return block_names[i].textContent;
+    });
+  }
+}
+allocate(images, block_names);
+
+// gets 2D block by name of 3D block
+let chosen_block = "";
+
+function get_block() {
+  switch (allocate(images, block_names)) {
+    case "grass":
+      chosen_block = "/images/blocks-flat/grass";
+    case "rock":
+      chosen_block = "/images/blocks-flat/rock";
+  }
+}
+
+// fills the grid
