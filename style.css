@@ -45,8 +45,8 @@ body {
   height: 800px;
   border: 1px solid black;
 
-  display: grid;
-  grid-template: repeat(16, 1fr) / repeat(16, 1fr);
+  /* display: grid;
+  grid-template: repeat(16, 1fr) / repeat(16, 1fr); */
 }
 
 .inventory-border {
@@ -68,7 +68,6 @@ body {
 
 .inventory-title {
   grid-column: span 5;
-  grid-gap: 0;
   font-family: "minecraft-normal";
   font-size: 1.5rem;
   align-self: end;
@@ -79,11 +78,11 @@ body {
 .inventory-blocks {
   display: grid;
   grid-template-columns: repeat(5, 44px);
-  grid-template-rows: repeat(5, 44px);
+  grid-template-rows: repeat(7, 44px);
   padding-left: 10px;
 }
 
-.inventory-blocks > img {
+.inventory-blocks > .tooltip > img {
   height: 40px;
   border-top: 2px solid black;
   border-left: 2px solid black;
@@ -92,12 +91,87 @@ body {
   background-color: #8d8d8d;
 }
 
-.inventory-blocks > img:hover {
+.inventory-blocks > .tooltip > img:hover {
   background-color: rgb(170, 169, 169);
   opacity: 0.8;
 }
 
-.inventory-blocks > img:active {
+.inventory-blocks > .tooltip > img:active {
   background-color: rgb(0, 128, 0, 0.6);
   opacity: 1;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: auto;
+  background-color: #110b12;
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border: 4px solid #280f61;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-family: "minecraft-normal";
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 60%;
+  left: 60%;
+  /* margin-left: -60px; */
+
+  /* Fade in tooltip */
+  opacity: 0;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.world-size {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.world-size > img {
+  height: 100px;
+  width: 100px;
+  padding-bottom: 5px;
+}
+
+.size-value {
+  font-family: "minecraft-normal";
+  position: absolute;
+  top: 800px;
+}
+
+.slider {
+  position: absolute;
+  top: 750px;
+  width: 200px;
+  height: 10px;
+  background: #717171;
+  -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 50px;
+  width: 22px;
+  background-color: #878a87;
+  border-top: 5px solid #c2c4c2;
+  border-bottom: 5px solid #5a5a5a;
+  border-left: 5px solid #666666;
+  border-right: 5px solid #666666;
 }
