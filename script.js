@@ -1,21 +1,31 @@
 // function that makes grid and appends it into container
 const container = document.querySelector(".grid-container");
+// defines base grid size
+let grid_size = 16;
+
 function setGrid(grid_size) {
   container.style.display = "grid";
   container.style.gridTemplateColumns = "repeat(" + grid_size + ", 1fr)";
   container.style.gridTemplateRows = "repeat(" + grid_size + ", 1fr)";
+  for (let i = 0; i < grid_size ** 2; i++) {
+    let div = document.createElement("div");
+    div.classList.add("img-div");
+    div.style.cssText =
+      "border-left: 1px solid black; border-top: 1px solid black";
+    container.append(div);
+  }
 }
 
-// defines base grid size
-let grid_size = 16;
 setGrid(grid_size);
-
-// changes opacity to 1 and img:active to some background colro
 
 // range slider changes grid_size, .cube and .size_value on input
 const slider = document.querySelector(".slider");
 const cube = document.querySelector(".cube");
 let size_value = document.querySelector(".size-value");
+
+function resetGrid() {
+  document.querySelectorAll(".img-div").forEach((div) => div.remove());
+}
 
 size_value.textContent = slider.value + "x" + slider.value;
 cube.style.height = `${100 + parseInt(slider.value)}px`;
@@ -26,12 +36,9 @@ slider.oninput = function () {
   cube.style.width = `${100 + parseInt(slider.value)}px`;
   cube.style.height = `${100 + parseInt(slider.value)}px`;
   grid_size = slider.value;
+  resetGrid();
   setGrid(grid_size);
-  console.log(grid_size);
 };
-
-// changes opacity to 1 and img:active to some background color
-
 // adds event to every 3D block which returns
 // .tooltip-text textContent on click
 const images = document.querySelectorAll(".tooltip-image");
@@ -59,3 +66,9 @@ function get_block() {
 }
 
 // fills the grid
+
+// changes opacity to 1 and img:active to some background color
+
+// changes opacity to 1 and img:active to some background colro
+
+//turns the lines on/off
