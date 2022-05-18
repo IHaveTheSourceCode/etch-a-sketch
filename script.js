@@ -22,7 +22,7 @@ function setGrid(grid_size) {
 // adds event to every grid cells that fills it with block
 // when holding mousedown
 function fillCells(div) {
-  div.style.backgroundImage = "url(/images/blocks-flat/grass.jpg)";
+  div.style.backgroundImage = "url(/images/blocks-flat/yellow_wool.png)";
   div.style.backgroundSize = "cover";
 }
 
@@ -67,14 +67,7 @@ allocate(images, block_names);
 // gets 2D block by name of 3D block
 let chosen_block = "";
 
-function get_block() {
-  switch (allocate(images, block_names)) {
-    case "grass":
-      chosen_block = "/images/blocks-flat/grass";
-    case "rock":
-      chosen_block = "/images/blocks-flat/rock";
-  }
-}
+function get_block() {}
 
 // changes opacity to 1 and img:active to some background color
 
