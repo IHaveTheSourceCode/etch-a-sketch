@@ -13,7 +13,17 @@ function setGrid(grid_size) {
     div.style.cssText =
       "border-left: 1px solid black; border-top: 1px solid black";
     container.append(div);
+    div.addEventListener("mouseover", function () {
+      fillCells(div);
+    });
   }
+}
+
+// adds event to every grid cells that fills it with block
+// when holding mousedown
+function fillCells(div) {
+  div.style.backgroundImage = "url(/images/blocks-flat/grass.jpg)";
+  div.style.backgroundSize = "cover";
 }
 
 setGrid(grid_size);
@@ -38,6 +48,7 @@ slider.oninput = function () {
   grid_size = slider.value;
   resetGrid();
   setGrid(grid_size);
+  fillCells();
 };
 // adds event to every 3D block which returns
 // .tooltip-text textContent on click
@@ -64,8 +75,6 @@ function get_block() {
       chosen_block = "/images/blocks-flat/rock";
   }
 }
-
-// fills the grid
 
 // changes opacity to 1 and img:active to some background color
 
