@@ -74,3 +74,5 @@ function get_block() {}
 // changes opacity to 1 and img:active to some background colro
 
 //turns the lines on/off
+
+// pickaxe tool that will delete blocks
