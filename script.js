@@ -119,3 +119,12 @@ background_switcher.addEventListener("click", function () {
 });
 
 // pickaxe tool that will delete blocks
+function pickaxe() {
+  document.querySelector(".pickaxe").addEventListener("click", function () {
+    chosen_block = "blank";
+  });
+}
+pickaxe();
+
+//when clicking on block make color value dissapear, when clicking
+//on color make target block value dissapear
