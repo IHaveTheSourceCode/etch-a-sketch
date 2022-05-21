@@ -1,6 +1,9 @@
 const container = document.querySelector(".grid-container");
 // defines base grid size
 let grid_size = 16;
+// defines value of color picker input and presence of pickaxe
+let color;
+let pickaxe_bool;
 
 // function that makes grid and appends it into container
 function setGrid(grid_size) {
@@ -22,9 +25,18 @@ function setGrid(grid_size) {
 // adds event to every grid cells that fills it with block
 // when holding mousedown
 function fillCells(div) {
-  div.style.backgroundImage =
-    "url(/images/blocks-flat/" + chosen_block + ".png";
-  div.style.backgroundSize = "cover";
+  if (chosen_block != undefined) {
+    div.style.backgroundColor = pickaxe;
+    div.style.backgroundImage =
+      "url(/images/blocks-flat/" + chosen_block.replace(/ /g, "") + ".png";
+    div.style.backgroundSize = "cover";
+  } else if (color != undefined) {
+    div.style.backgroundColor = color;
+    div.style.backgroundImage = "url()";
+  } else if (pickaxe_bool != undefined) {
+    div.style.backgroundColor = pickaxe_bool;
+    div.style.backgroundImage = "url()";
+  }
 }
 
 setGrid(grid_size);
@@ -54,13 +66,14 @@ slider.oninput = function () {
 // adds event to every 3D block which returns
 // .tooltip-text textContent on click
 const tooltips = Array.from(document.querySelectorAll(".tooltip"));
-let chosen_block = "";
+let chosen_block;
 
 function get_block() {
   tooltips.forEach((tooltip) =>
     tooltip.addEventListener("click", function () {
       chosen_block = tooltip.textContent.trim();
-      console.log(tooltip.textContent.trim());
+      color = undefined;
+      pickaxe_bool = undefined;
     })
   );
 }
@@ -121,10 +134,21 @@ background_switcher.addEventListener("click", function () {
 // pickaxe tool that will delete blocks
 function pickaxe() {
   document.querySelector(".pickaxe").addEventListener("click", function () {
-    chosen_block = "blank";
+    pickaxe_bool = "rgb(1, 1, 1, 0.0)"; //transparent color
+    chosen_block = undefined;
+    color = undefined;
+    console.log("test");
   });
 }
 pickaxe();
+
+// color picker
+const color_picker = document.querySelector(".color-picker");
+color_picker.addEventListener("input", function () {
+  color = color_picker.value;
+  pickaxe_bool = undefined;
+  chosen_block = undefined;
+});
 
 //when clicking on block make color value dissapear, when clicking
 //on color make target block value dissapear

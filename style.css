@@ -62,7 +62,6 @@ body {
 }
 
 .under-inventory {
-  margin-top: 150px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -77,7 +76,7 @@ body {
   font-size: 1.2rem;
   background-color: #9ca09c;
   width: 100px;
-  padding: 5px;
+  padding: px;
 }
 
 .lines-btn:hover {
@@ -212,4 +211,31 @@ body {
   border-bottom: 5px solid #5a5a5a;
   border-left: 5px solid #666666;
   border-right: 5px solid #666666;
+}
+
+.color-picker:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.pickaxe:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+.pickaxe:active {
+  box-shadow: inset 1px 1px 1px 1px black;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    display: none;
+  }
+  html {
+    background-image: url(/images/themes/parrot.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(0, 81, 255);
+  }
 }
