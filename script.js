@@ -28,7 +28,7 @@ function fillCells(div) {
   if (chosen_block != undefined) {
     div.style.backgroundColor = pickaxe;
     div.style.backgroundImage =
-      "url(/images/blocks-flat/" + chosen_block.replace(/ /g, "") + ".png";
+      "url(images/blocks-flat/" + chosen_block.replace(/ /g, "") + ".png";
     div.style.backgroundSize = "cover";
   } else if (color != undefined) {
     div.style.backgroundColor = color;
@@ -111,7 +111,7 @@ background_switcher.addEventListener("click", function () {
   if (background == "light") {
     background = "dark";
     background_switcher.textContent = "Dark mode";
-    document.body.style.backgroundImage = "url(/images/themes/theme-dark.jpg)";
+    document.body.style.backgroundImage = "url(images/themes/theme-dark.jpg)";
     document.querySelector(".header-title").style.color = "white";
     document.querySelector(".grid-container").style.boxShadow =
       "1px 1px 0px white";
@@ -121,7 +121,7 @@ background_switcher.addEventListener("click", function () {
   } else {
     background = "light";
     background_switcher.textContent = "Light mode";
-    document.body.style.backgroundImage = "url(/images/themes/theme-light.jpg)";
+    document.body.style.backgroundImage = "url(images/themes/theme-light.jpg)";
     document.querySelector(".header-title").style.color = "black";
     document.querySelector(".grid-container").style.boxShadow =
       "1px 1px 0px black";
