@@ -149,6 +149,3 @@ color_picker.addEventListener("input", function () {
   pickaxe_bool = undefined;
   chosen_block = undefined;
 });
-
-//when clicking on block make color value dissapear, when clicking
-//on color make target block value dissapear
